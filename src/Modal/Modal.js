@@ -2,10 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./Modal.css";
 
-const Modal = () => {
+const Modal = (props) => {
+    if(!props.show) {
+        return null
+    }
   return (
-    <div className="modal">
-      <div className="modal-content">
+    <div className="modal" onClick={props.onClose}>
+      <div className="modal-content" onClick={e => e.stopPropagation()}>
         <div className="modal-header">
           <h4 className="modal-title">Modal title</h4>
         </div>
@@ -13,7 +16,7 @@ const Modal = () => {
             This is modal content
         </div>
         <div className="modal-footer">
-            <button className="button">Close</button>
+            <button onClick={props.onClose} className="button">Close</button>
         </div>
       </div>
     </div>
