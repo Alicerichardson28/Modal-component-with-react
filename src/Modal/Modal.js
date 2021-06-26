@@ -11,7 +11,7 @@ const Modal = (props) => {
 
   const closeOnEscapeKeyDown = (e) => {
     if ((e.charCode || e.keyCode) === 27) {
-      props.onClose();
+      props.handleClose();
     }
   };
 
